@@ -1,10 +1,8 @@
 package com.aditya.gstbillingapp.Activity;
 
-import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
 import android.os.Environment;
-import android.view.View;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
@@ -15,7 +13,6 @@ import androidx.core.view.WindowInsetsCompat;
 
 import com.aditya.gstbillingapp.Adapters.UserAdapter;
 import com.aditya.gstbillingapp.Config.AppConfig;
-import com.aditya.gstbillingapp.Helper.RefreshReciver;
 import com.aditya.gstbillingapp.Model.User;
 import com.aditya.gstbillingapp.R;
 
@@ -34,7 +31,6 @@ import java.util.ArrayList;
 public class ViewBranchActivity extends AppCompatActivity {
     private com.aditya.gstbillingapp.databinding.ActivityViewBranchBinding binding;
     private ArrayList<User> customerList;
-    private RefreshReciver refreshReceiver;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,9 +39,6 @@ public class ViewBranchActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
         customerList = new ArrayList<>();
 
-        refreshReceiver = new RefreshReciver();
-        IntentFilter intentFilter = new IntentFilter("com.aditya.gstbillingapp.REFRESH_ACTION");
-        registerReceiver(refreshReceiver, intentFilter);
 
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
@@ -110,12 +103,6 @@ public class ViewBranchActivity extends AppCompatActivity {
             UserAdapter adapter = new UserAdapter(customerList);
             binding.custemerRv.setAdapter(adapter);
         }
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        unregisterReceiver(refreshReceiver);
     }
 
 }
