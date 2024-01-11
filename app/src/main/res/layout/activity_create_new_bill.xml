@@ -1,0 +1,300 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activity.CreateNewBillActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp">
+
+            <LinearLayout
+                android:id="@+id/productLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="1">
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="Select Product:- "
+                        android:textColor="@color/black"
+                        android:textStyle="bold" />
+
+                    <Spinner
+
+                        android:id="@+id/productSpinner"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:background="@drawable/edittext_border"
+                        android:padding="15dp" />
+
+                </LinearLayout>
+
+                <EditText
+                    android:id="@+id/edtProductQunt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/edittext_border"
+                    android:hint="Quantity:- "
+                    android:inputType="number"
+                    android:padding="15dp"
+
+                    />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:orientation="horizontal">
+                    <ImageView
+                        android:clickable="true"
+                        android:layout_width="60dp"
+                        android:layout_height="30dp"
+                        android:src="@drawable/baseline_list_alt_24"
+                        android:layout_gravity="center"
+                        android:layout_marginRight="10dp"
+                        android:id="@+id/btnViewAddedItems"/>
+                    <Button
+                        android:id="@+id/btnAddProduct"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="add" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <View
+                android:id="@+id/sep1"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_below="@+id/productLayout"
+                android:background="@color/black" />
+
+            <LinearLayout
+                android:id="@+id/custlayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/sep1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="Select Customer:"
+                    android:textColor="@color/black"
+                    android:textStyle="bold" />
+
+                <Spinner
+                    android:id="@+id/savedCustomerSpiner"
+                    android:layout_width="match_parent"
+
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/edittext_border"
+                    android:padding="15dp" />
+
+            </LinearLayout>
+
+            <View
+                android:id="@+id/sep2"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_below="@+id/custlayout"
+                android:background="@color/black" />
+
+            <LinearLayout
+                android:id="@+id/customerLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/sep2"
+                android:layout_marginTop="5dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="Enter Details Manually"
+                    android:textColor="@color/black"
+                    android:textSize="25dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:text="Customer Name: " />
+
+                <EditText
+                    android:id="@+id/editCustemerName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/edittext_border"
+                    android:hint="Enter Customer Name"
+                    android:padding="10dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:text="Customer Address: " />
+
+                <EditText
+                    android:id="@+id/editCustemerAddr"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/edittext_border"
+                    android:hint="Enter Customer Address"
+                    android:padding="10dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:text="Customer Phone: " />
+
+                <EditText
+                    android:id="@+id/editCustemerPhone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/edittext_border"
+                    android:hint="Enter Customer Phone"
+                    android:inputType="number"
+                    android:maxLength="10"
+                    android:padding="10dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:text="Customer Email: " />
+
+                <EditText
+                    android:id="@+id/editCustemerEmail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/edittext_border"
+                    android:hint="Enter Customer Email"
+                    android:inputType="textEmailAddress"
+                    android:padding="10dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:text="Customer GST number: " />
+
+                <EditText
+                    android:id="@+id/editCustemerGSTno"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+
+                    android:background="@drawable/edittext_border"
+                    android:hint="Enter Customer GST no: "
+                    android:padding="10dp"
+                    android:inputType="text" />
+            </LinearLayout>
+
+            <View
+                android:layout_marginTop="5dp"
+                android:id="@+id/sep3"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_below="@+id/customerLayout"
+                android:background="@color/black" />
+
+            <RadioGroup
+                android:id="@+id/billTypeRadioGroup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/sep3"
+                android:layout_marginTop="5dp"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/invoiceRadioButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Invoice"
+                    android:checked="true"
+                    android:textSize="20dp"
+                    android:textColor="@color/black"
+                    android:textStyle="bold" />
+
+                <RadioButton
+                    android:id="@+id/temporaryRadioButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Quotation"
+                    android:textSize="20dp"
+                    android:textColor="@color/black"
+                    android:textStyle="bold" />
+            </RadioGroup>
+
+            <View
+                android:layout_marginTop="5dp"
+                android:id="@+id/sep4"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_below="@+id/billTypeRadioGroup"
+                android:background="@color/black" />
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/sep4"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btnSaveCustomer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="10dp"
+                    android:backgroundTint="#ff00"
+                    android:text="Save Customer" />
+
+                <Button
+                    android:id="@+id/btnGenerateBill"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:backgroundTint="#03A9F4"
+                    android:text="Create Bill" />
+            </LinearLayout>
+
+
+        </RelativeLayout>
+
+    </ScrollView>
+
+
+</RelativeLayout>

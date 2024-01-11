@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">GSTBillingApp</string>
+    <string name="welcomeText">Hey, \n Welcome To\n Motiram Construction</string>
+    <string name="welcomeText2">This is Billing App</string>
+</resources>

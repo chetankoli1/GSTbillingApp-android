@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activity.CreateBranchActivity">
+
+    <LinearLayout
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="16dp"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/editTextBranchName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Branch Name"
+            android:inputType="text"
+            android:padding="15dp"
+            android:layout_marginBottom="10dp"
+        android:background="@drawable/edittext_border"/>
+
+        <EditText
+            android:id="@+id/editTextBranchAddress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Branch Address"
+            android:inputType="text"
+            android:padding="15dp"
+            android:layout_marginBottom="10dp"
+        android:background="@drawable/edittext_border"/>
+
+        <EditText
+            android:id="@+id/editTextGSTNo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="GST No"
+            android:inputType="text"
+            android:padding="15dp"
+            android:layout_marginBottom="10dp"
+        android:background="@drawable/edittext_border"/>
+
+        <EditText
+            android:id="@+id/editTextBranchManager"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Branch Manager Name"
+            android:inputType="text"
+            android:padding="15dp"
+            android:layout_marginBottom="10dp"
+        android:background="@drawable/edittext_border"/>
+
+        <EditText
+            android:id="@+id/editTextBankAccountNo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Bank Account No"
+            android:inputType="number"
+            android:padding="15dp"
+            android:layout_marginBottom="10dp"
+        android:background="@drawable/edittext_border"/>
+
+        <EditText
+            android:id="@+id/editTextIFSCCode"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="IFSC Code"
+            android:inputType="text"
+            android:padding="15dp"
+            android:layout_marginBottom="10dp"
+        android:background="@drawable/edittext_border"/>
+
+        <EditText
+            android:id="@+id/editTextBranchCity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Branch City"
+            android:inputType="text"
+            android:padding="15dp"
+            android:layout_marginBottom="10dp"
+        android:background="@drawable/edittext_border"/>
+
+        <Button
+            android:id="@+id/buttonSave"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Save Branch Info"
+            android:layout_marginTop="16dp"/>
+    </LinearLayout>
+
+</RelativeLayout>
