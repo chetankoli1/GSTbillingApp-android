@@ -86,7 +86,7 @@ public class ViewAllBillsActivity extends AppCompatActivity {
         ArrayList<File> searchList = new ArrayList<>();
 
         for (File file : pdfFiles) {
-            if (file.getName().toLowerCase().contains(charSequence) ||
+            if (file.getName().toLowerCase().contains(charSequence.toString().toLowerCase()) ||
                     getFormattedDate(file.lastModified()).toLowerCase().contains(charSequence)) {
                 searchList.add(file);
             }
