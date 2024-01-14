@@ -91,7 +91,7 @@ public class CreateBranchActivity extends AppCompatActivity {
                 jsonString.append(line);
             }
             reader.close();
-            Toast.makeText(CreateBranchActivity.this, "readed", Toast.LENGTH_SHORT).show();
+            //Toast.makeText(CreateBranchActivity.this, "readed", Toast.LENGTH_SHORT).show();
             return new JSONArray(jsonString.toString());
         } catch (IOException | JSONException e) {
             e.printStackTrace();
@@ -111,7 +111,7 @@ public class CreateBranchActivity extends AppCompatActivity {
             FileOutputStream fileOutputStream = new FileOutputStream(filePath);
             fileOutputStream.write(jsonString.getBytes());
             fileOutputStream.close();
-            Toast.makeText(CreateBranchActivity.this, "branch created", Toast.LENGTH_SHORT).show();
+          //  Toast.makeText(CreateBranchActivity.this, "branch created", Toast.LENGTH_SHORT).show();
         } catch (IOException e) {
             e.printStackTrace();
         }

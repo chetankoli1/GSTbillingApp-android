@@ -76,7 +76,7 @@ public class AddProductActivity extends AppCompatActivity {
         {
             if(permissionHelper.checkPermissions(AddProductActivity.this))
             {
-                Toast.makeText(AddProductActivity.this, "Permission  Granted", Toast.LENGTH_LONG).show();
+               // Toast.makeText(AddProductActivity.this, "Permission  Granted", Toast.LENGTH_LONG).show();
                // binding.btnGeneratePdf.setVisibility(View.GONE);
             }
             else{
@@ -120,7 +120,7 @@ public class AddProductActivity extends AppCompatActivity {
                 jsonString.append(line);
             }
             reader.close();
-            Toast.makeText(AddProductActivity.this, "readed", Toast.LENGTH_SHORT).show();
+            // Toast.makeText(AddProductActivity.this, "readed", Toast.LENGTH_SHORT).show();
             return new JSONArray(jsonString.toString());
         } catch (IOException | JSONException e) {
             e.printStackTrace();

@@ -80,7 +80,7 @@ public class ViewProductActivity extends AppCompatActivity {
                 jsonString.append(line);
             }
             reader.close();
-            Toast.makeText(ViewProductActivity.this, "readed", Toast.LENGTH_SHORT).show();
+           // Toast.makeText(ViewProductActivity.this, "readed", Toast.LENGTH_SHORT).show();
             return new JSONArray(jsonString.toString());
         } catch (IOException | JSONException e) {
             e.printStackTrace();
@@ -100,7 +100,7 @@ public class ViewProductActivity extends AppCompatActivity {
                     String price = customerObject.getString("price");
                     String HSNSACno = customerObject.getString("HSNSACno");
 
-                    Toast.makeText(ViewProductActivity.this,productName,Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(ViewProductActivity.this,productName,Toast.LENGTH_SHORT).show();
 
                     // Create a Customer object and add it to the list
 

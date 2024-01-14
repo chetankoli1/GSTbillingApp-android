@@ -163,12 +163,12 @@ public class CreateNewBillActivity extends AppCompatActivity {
                 if(binding.invoiceRadioButton.isChecked())
                 {
                     billType = "INVOICE";
-                    Toast.makeText(CreateNewBillActivity.this, "invice", Toast.LENGTH_SHORT).show();
+                   // Toast.makeText(CreateNewBillActivity.this, "invice", Toast.LENGTH_SHORT).show();
                 }
                 else
                 {
                     billType = "QUOTATION";
-                    Toast.makeText(CreateNewBillActivity.this, "quatation", Toast.LENGTH_SHORT).show();
+                    //oast.makeText(CreateNewBillActivity.this, "quatation", Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -201,8 +201,7 @@ public class CreateNewBillActivity extends AppCompatActivity {
                         dismissProgressDialog(); // Dismiss the progress dialog
                         Toast.makeText(CreateNewBillActivity.this, "Failed to generate PDF", Toast.LENGTH_SHORT).show();
                     }
-
-                    Toast.makeText(CreateNewBillActivity.this, "tes"+user.getCustemerName(), Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(CreateNewBillActivity.this, "tes"+user.getCustemerName(), Toast.LENGTH_SHORT).show();
                 }else{
                     Toast.makeText(CreateNewBillActivity.this, "Product or User are not selected!", Toast.LENGTH_SHORT).show();
                 }
@@ -254,7 +253,7 @@ public class CreateNewBillActivity extends AppCompatActivity {
                                     p.getProductName(), p.getPrice(), quant, p.getHSNSACno()
                             );
                             addedProductList.add(myproduct);
-                            Toast.makeText(CreateNewBillActivity.this, "product added"+p.getProductName(), Toast.LENGTH_SHORT).show();
+                            Toast.makeText(CreateNewBillActivity.this, p.getProductName()+" "+"product added", Toast.LENGTH_SHORT).show();
                         }
                     }
                 }
@@ -436,7 +435,7 @@ public class CreateNewBillActivity extends AppCompatActivity {
                 jsonString.append(line);
             }
             reader.close();
-            Toast.makeText(CreateNewBillActivity.this, "readed", Toast.LENGTH_SHORT).show();
+            //Toast.makeText(CreateNewBillActivity.this, "readed", Toast.LENGTH_SHORT).show();
             return new JSONArray(jsonString.toString());
         } catch (IOException | JSONException e) {
             e.printStackTrace();

@@ -70,7 +70,7 @@ public class ViewBranchActivity extends AppCompatActivity {
                 jsonString.append(line);
             }
             reader.close();
-            Toast.makeText(ViewBranchActivity.this, "readed", Toast.LENGTH_SHORT).show();
+           // Toast.makeText(ViewBranchActivity.this, "readed", Toast.LENGTH_SHORT).show();
             return new JSONArray(jsonString.toString());
         } catch (IOException | JSONException e) {
             e.printStackTrace();
