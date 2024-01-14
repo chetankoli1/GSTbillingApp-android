@@ -103,37 +103,60 @@ public class HomeActivity extends AppCompatActivity {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         if(requestCode == PermissionHelper.PERMISSION_REQUEST_CODE)
         {
-            if(permissionHelper.checkPermissions(HomeActivity.this))
+            File file = new File(Environment.getExternalStorageDirectory(), AppConfig.folderName);
+            if (!file.exists())
             {
-                //Toast.makeText(HomeActivity.this, "Permission  Granted", Toast.LENGTH_LONG).show();
-                // binding.btnGeneratePdf.setVisibility(View.GONE);
-                File file = new File(Environment.getExternalStorageDirectory(), AppConfig.folderName);
-                if (!file.exists())
-                {
-                    file.mkdir();
-                }
-                File products = new File(file, AppConfig.products);
-                if (!products.exists())
-                {
-                    products.mkdir();
-                }
-
-                File customer = new File(file, AppConfig.customer);
-                if (!customer.exists())
-                {
-                    customer.mkdir();
-                }
-
-                File bill = new File(file, AppConfig.Bills);
-                if (!bill.exists())
-                {
-                    bill.mkdir();
-                }
+                file.mkdir();
             }
-            else{
-                finish();
-                //Toast.makeText(HomeActivity.this, "Permission Not Granted", Toast.LENGTH_LONG).show();
+            File products = new File(file, AppConfig.products);
+            if (!products.exists())
+            {
+                products.mkdir();
             }
+
+            File customer = new File(file, AppConfig.customer);
+            if (!customer.exists())
+            {
+                customer.mkdir();
+            }
+
+            File bill = new File(file, AppConfig.Bills);
+            if (!bill.exists())
+            {
+                bill.mkdir();
+            }
+//            if(permissionHelper.checkPermissions(HomeActivity.this))
+//            {
+//                //Toast.makeText(HomeActivity.this, "Permission  Granted", Toast.LENGTH_LONG).show();
+//                // binding.btnGeneratePdf.setVisibility(View.GONE);
+//                File file = new File(Environment.getExternalStorageDirectory(), AppConfig.folderName);
+//                if (!file.exists())
+//                {
+//                    file.mkdir();
+//                }
+//                File products = new File(file, AppConfig.products);
+//                if (!products.exists())
+//                {
+//                    products.mkdir();
+//                }
+//
+//                File customer = new File(file, AppConfig.customer);
+//                if (!customer.exists())
+//                {
+//                    customer.mkdir();
+//                }
+//
+//                File bill = new File(file, AppConfig.Bills);
+//                if (!bill.exists())
+//                {
+//                    bill.mkdir();
+//                }
+//
+        }
+
+        else{
+            finish();
+            //Toast.makeText(HomeActivity.this, "Permission Not Granted", Toast.LENGTH_LONG).show();
         }
     }
 }
