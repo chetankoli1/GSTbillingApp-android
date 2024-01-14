@@ -18,10 +18,12 @@
             android:layout_centerVertical="true"
             />
         <LinearLayout
+            android:id="@+id/txtLayout1"
             android:layout_centerVertical="true"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
+            android:layout_toLeftOf="@id/mPdfDeleteBtn"
             android:layout_toRightOf="@+id/pdfIcon"
             android:orientation="vertical">
             <TextView
@@ -44,14 +46,16 @@
                 />
 
         </LinearLayout>
+        <ImageView
+            android:id="@+id/mPdfDeleteBtn"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginRight="10dp"
+            android:src="@drawable/baseline_delete_24"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"/>
     </RelativeLayout>
 
-    <ImageView
-        android:id="@+id/mPdfDeleteBtn"
-        android:layout_width="25dp"
-        android:layout_height="25dp"
-        android:layout_marginRight="10dp"
-        android:src="@drawable/baseline_delete_24"
-        android:layout_gravity="end | center_vertical"/>
+
 
 </androidx.cardview.widget.CardView>
