@@ -102,7 +102,7 @@ public class PdfView {
                     .setBold()
                     .setFontSize(14);
 
-            Text regularText = new Text("38 a panchadeep bunglow near vishwakarma garden,\n")
+            Text regularText = new Text("38 a Panchadeep Bunglow Near Vishwakarma Garden,\n")
                     .setFontSize(10);
 
             companyInfo.add(boldText);
