@@ -19,6 +19,7 @@ import com.aditya.gstbillingapp.Activity.ViewAllBillsActivity;
 import com.aditya.gstbillingapp.Activity.ViewBranchActivity;
 import com.aditya.gstbillingapp.Activity.ViewProductActivity;
 import com.aditya.gstbillingapp.Config.AppConfig;
+import com.aditya.gstbillingapp.Config.ThemeUtils;
 import com.aditya.gstbillingapp.Helper.PermissionHelper;
 import com.aditya.gstbillingapp.databinding.ActivityHomeBinding;
 
@@ -34,6 +35,8 @@ public class HomeActivity extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(binding.getRoot());
         permissionHelper = new PermissionHelper();
+
+       // ThemeUtils.applyNavigationIconColor(HomeActivity.this, getSupportActionBar());
 
         if(!permissionHelper.checkPermissions(HomeActivity.this)) {
             permissionHelper.requestPermission(HomeActivity.this);

@@ -1,6 +1,7 @@
 package com.aditya.gstbillingapp.Activity;
 
 import android.app.Activity;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.os.Environment;
 import android.view.View;
@@ -9,6 +10,7 @@ import android.widget.Toast;
 import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
@@ -47,6 +49,13 @@ public class AddProductActivity extends AppCompatActivity {
             return insets;
         });
 
+        if (isDarkModeEnabled()) {
+            getSupportActionBar().setHomeAsUpIndicator(new ColorDrawable(ContextCompat.getColor(this, R.color.white)));
+        } else {
+            getSupportActionBar().setHomeAsUpIndicator(new ColorDrawable(ContextCompat.getColor(this, R.color.black)));
+        }
+
+
         permissionHelper = new PermissionHelper();
 
         binding.buttonSaveProduct.setOnClickListener(new View.OnClickListener() {
@@ -68,6 +77,11 @@ public class AddProductActivity extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    private boolean isDarkModeEnabled() {
+        int nightModeFlags = getResources().getConfiguration().uiMode & android.content.res.Configuration.UI_MODE_NIGHT_MASK;
+        return nightModeFlags == android.content.res.Configuration.UI_MODE_NIGHT_YES;
     }
 
     @Override
