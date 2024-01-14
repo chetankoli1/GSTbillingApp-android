@@ -253,7 +253,7 @@ public class CreateNewBillActivity extends AppCompatActivity {
                                     p.getProductName(), p.getPrice(), quant, p.getHSNSACno()
                             );
                             addedProductList.add(myproduct);
-                            Toast.makeText(CreateNewBillActivity.this, p.getProductName()+" "+"product added", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(CreateNewBillActivity.this, p.getProductName()+" "+"added", Toast.LENGTH_SHORT).show();
                         }
                     }
                 }

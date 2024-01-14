@@ -338,7 +338,9 @@ public class PdfView {
                     .setMarginTop(2);
             authorizedSignature.addCell(new Cell().add(declaration));
 
-            Paragraph signature = new Paragraph("MOTIRAM CONSTRUCTION\n\nAuthorized Signature")
+            //MOTIRAM CONSTRUCTION
+
+            Paragraph signature = new Paragraph("Authorized Signature\n\n From Motiram Construction")
                     .setTextAlignment(TextAlignment.RIGHT)
                     .setMarginTop(20);
             authorizedSignature.addCell(new Cell().add(signature));
