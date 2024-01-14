@@ -27,38 +27,49 @@
 
             <meta-data
                 android:name="android.support.FILE_PROVIDER_PATHS"
-                android:resource="@xml/file_paths" />
+                android:resource="@xml/file_paths"
+                />
 
         </provider>
         <activity
             android:name=".Activity.DiplayPdfActivity"
+            android:theme="@style/Theme.GSTBillingApp"
             android:exported="false" />
         <activity
             android:name=".Activity.AddProductActivity"
+            android:theme="@style/Theme.GSTBillingApp"
             android:exported="false" />
         <activity
             android:name=".Activity.CreateBranchActivity"
+            android:theme="@style/Theme.GSTBillingApp"
             android:exported="false" />
         <activity
             android:name=".Activity.ViewProductActivity"
+            android:theme="@style/Theme.GSTBillingApp"
             android:exported="false" />
         <activity
             android:name=".Activity.ViewBranchActivity"
+            android:theme="@style/Theme.GSTBillingApp"
             android:exported="false" />
         <activity
             android:name=".Activity.CreateNewBillActivity"
+            android:theme="@style/Theme.GSTBillingApp"
             android:exported="false" />
         <activity
             android:name=".Activity.ViewAllBillsActivity"
+            android:theme="@style/Theme.GSTBillingApp"
             android:exported="false" />
         <activity
             android:name=".HomeActivity"
+            android:theme="@style/Theme.GSTBillingApp"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
+            android:theme="@style/Theme.GSTBillingApp"
             android:exported="false" />
         <activity
             android:name=".SplashActivity"
+            android:theme="@style/Theme.GSTBillingApp"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -15,7 +15,6 @@
         <!-- Customize your theme here. -->
         <item name="android:windowLightStatusBar" tools:ignore="NewApi">false</item>
         <item name="fontFamily">@font/amaranth</item>
-        <item name="android:forceDarkAllowed" tools:targetApi="q">false</item>
     </style>
     <style name="btnTheme" parent="Widget.AppCompat.Button">
         <item name="round">15dp</item>

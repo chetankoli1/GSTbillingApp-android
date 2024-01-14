@@ -11,13 +11,14 @@
         <item name="colorPrimary">@color/purple_500</item>
         <item name="colorSecondary">@color/purple_700</item>
         <item name="colorAccent">@color/teal_200</item>
-        <item name="android:statusBarColor">@color/white</item>
+        <item name="android:statusBarColor">@color/black</item>
         <!-- Customize your theme here. -->
-        <item name="android:windowLightStatusBar" tools:ignore="NewApi">false</item>
+        <item name="android:windowLightStatusBar" tools:ignore="NewApi">true</item>
         <item name="fontFamily">@font/amaranth</item>
-        <item name="android:forceDarkAllowed" tools:targetApi="q">false</item>
+
     </style>
     <style name="btnTheme" parent="Widget.AppCompat.Button">
         <item name="round">15dp</item>
     </style>
+
 </resources>
