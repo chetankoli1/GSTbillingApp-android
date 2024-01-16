@@ -96,7 +96,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductViewHolder> {
 
 
         binding.editUpdatedProductName.setText(products.getProductName());
-        binding.editUpdatedPrice.setText(products.getPrice());
+        binding.editUpdatedPrice.setText("\u20B9 "+products.getPrice());
         binding.editGovtNo.setText(products.getHSNSACno());
 
         binding.buttonUpdatedSaveProduct.setOnClickListener(new View.OnClickListener() {

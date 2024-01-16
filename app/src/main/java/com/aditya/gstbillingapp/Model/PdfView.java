@@ -240,8 +240,8 @@ public class PdfView {
                 product = new Cell(1, 1).add(new Paragraph(products.getProductName()));
                 quat = new Cell(1, 1).add(new Paragraph(products.getProductQuantity()));
                 hsasan = new Cell(1, 1).add(new Paragraph(""+products.getProductSANno()));
-                totalwithgst = new Cell(1, 1).add(new Paragraph(""+priceWithQunt+"Rs"));
-                totalwithoutgst = new Cell(1, 1).add(new Paragraph(""+priceWithQuntWithGst+"Rs"));
+                totalwithgst = new Cell(1, 1).add(new Paragraph(priceWithQunt+" Rs"));
+                totalwithoutgst = new Cell(1, 1).add(new Paragraph(priceWithQuntWithGst+" Rs"));
 
                 productTable.addCell(srno);
                 productTable.addCell(product);
@@ -263,14 +263,14 @@ public class PdfView {
             Cell totalPrice = new Cell(1, 1).add(
                     new Paragraph("Non Taxable Amount: ").setBold());
             Cell totalPriceValue = new Cell(1, 1).add(
-                    new Paragraph(totalPriceWithoutGst+"Rs"));
+                    new Paragraph("\u20B9 "+totalPriceWithoutGst+" Rs"));
 
             Cell p5 = new Cell(1, 1).add(new Paragraph("IFSC: ").setBold());
             Cell p6 = new Cell(1, 1).add(new Paragraph(AppConfig.account_ifsc));
             Cell totalPriceWithGstCell = new Cell(1, 1).add(
                     new Paragraph("Taxable Amount: ").setBold());
             Cell totalPriceWithGstCellValue = new Cell(1, 1).add(
-                    new Paragraph(totalPriceWithGst+"Rs"));
+                    new Paragraph("\u20B9 "+totalPriceWithGst+" Rs"));
 
             Cell p9 = new Cell(1, 1).add(new Paragraph("Branch:- ").setBold());
             Cell p10 = new Cell(1, 1).add(new Paragraph(AppConfig.account_branch));
@@ -278,18 +278,18 @@ public class PdfView {
             Cell totalGst = new Cell(1, 1).add(
                     new Paragraph("Total Tax: ").setBold());
             Cell totalGstValue = new Cell(1, 1).add(
-                    new Paragraph((totalPriceWithGst-totalPriceWithoutGst)+"Rs"));
+                    new Paragraph((totalPriceWithGst-totalPriceWithoutGst)+" Rs"));
 
 
             Cell totalAmount = new Cell(1, 1).add(
                     new Paragraph("Total Payble Amount: ").setBold());
             Cell totalAmountValue = new Cell(1, 1).add(
-                    new Paragraph(totalPriceWithGst+"Rs"));
+                    new Paragraph(+totalPriceWithGst+" Rs Only /-"));
 
             NumberToWorld converter = new NumberToWorld();
             String numberInWords = converter.asWords(totalPriceWithGst);
             Cell date = new Cell(1, 1).add(new Paragraph("Payble Amount\nin Words:").setBold());
-            Cell dateValue = new Cell(1, 1).add(new Paragraph(numberInWords));
+            Cell dateValue = new Cell(1, 1).add(new Paragraph(numberInWords+" Rupees Only"));
 
             totalTable.addCell(p1);
             totalTable.addCell(p2);
@@ -342,7 +342,7 @@ public class PdfView {
 
             //MOTIRAM CONSTRUCTION
 
-            Paragraph signature = new Paragraph("Authorized Signature\n\nMottiram Construction")
+            Paragraph signature = new Paragraph("MOTTIRAM CONSTRUCTION")
                     .setTextAlignment(TextAlignment.RIGHT)
                     .setMarginTop(20);
             authorizedSignature.addCell(new Cell().add(signature));

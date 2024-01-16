@@ -16,7 +16,7 @@ public class ProductViewHolder extends RecyclerView.ViewHolder {
     }
     public void bind(Products products) {
         binding.mProductName.setText(products.getProductName());
-        binding.mProductPrice.setText(String.valueOf(products.getPrice()));
+        binding.mProductPrice.setText(String.valueOf("\u20B9 "+products.getPrice()));
         binding.mProductHSNSACno.setText(String.valueOf(products.getHSNSACno()));
     }
 }
