@@ -185,7 +185,8 @@ public class CreateNewBillActivity extends AppCompatActivity {
                     File file = new File(pdf);
                     if (file.exists()) {
                         dismissProgressDialog(); // Dismiss the progress dialog
-
+                        userList.clear();
+                        addedProductList.clear();
                         Uri uri = FileProvider.getUriForFile(CreateNewBillActivity.this, getApplicationContext().getPackageName() + ".provider", file.getAbsoluteFile());
 
                         Intent intent = new Intent(Intent.ACTION_VIEW);
@@ -253,7 +254,7 @@ public class CreateNewBillActivity extends AppCompatActivity {
                                     p.getProductName(), p.getPrice(), quant, p.getHSNSACno()
                             );
                             addedProductList.add(myproduct);
-                            Toast.makeText(CreateNewBillActivity.this, p.getProductName()+" "+"added", Toast.LENGTH_SHORT).show();
+                            //Toast.makeText(CreateNewBillActivity.this, p.getProductName()+" "+"added", Toast.LENGTH_SHORT).show();
                         }
                     }
                 }

@@ -43,17 +43,17 @@ public class AddProductActivity extends AppCompatActivity {
         EdgeToEdge.enable(this);
         binding = ActivityAddProductBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
-        });
+//        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
+//            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
+//            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
+//            return insets;
+//        });
 
-        if (isDarkModeEnabled()) {
-            getSupportActionBar().setHomeAsUpIndicator(new ColorDrawable(ContextCompat.getColor(this, R.color.white)));
-        } else {
-            getSupportActionBar().setHomeAsUpIndicator(new ColorDrawable(ContextCompat.getColor(this, R.color.black)));
-        }
+//        if (isDarkModeEnabled()) {
+//            getSupportActionBar().setHomeAsUpIndicator(new ColorDrawable(ContextCompat.getColor(this, R.color.white)));
+//        } else {
+//            getSupportActionBar().setHomeAsUpIndicator(new ColorDrawable(ContextCompat.getColor(this, R.color.black)));
+//        }
 
 
         permissionHelper = new PermissionHelper();
@@ -79,10 +79,10 @@ public class AddProductActivity extends AppCompatActivity {
         });
     }
 
-    private boolean isDarkModeEnabled() {
-        int nightModeFlags = getResources().getConfiguration().uiMode & android.content.res.Configuration.UI_MODE_NIGHT_MASK;
-        return nightModeFlags == android.content.res.Configuration.UI_MODE_NIGHT_YES;
-    }
+//    private boolean isDarkModeEnabled() {
+//        int nightModeFlags = getResources().getConfiguration().uiMode & android.content.res.Configuration.UI_MODE_NIGHT_MASK;
+//        return nightModeFlags == android.content.res.Configuration.UI_MODE_NIGHT_YES;
+//    }
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {

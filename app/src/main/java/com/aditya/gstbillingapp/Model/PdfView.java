@@ -12,6 +12,7 @@ import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.aditya.gstbillingapp.Config.AppConfig;
+import com.aditya.gstbillingapp.Helper.BillSavingHeler;
 import com.aditya.gstbillingapp.Helper.DayHelper;
 import com.aditya.gstbillingapp.Helper.NumberToWorld;
 import com.aditya.gstbillingapp.R;
@@ -358,6 +359,10 @@ public class PdfView {
             document.add(endText);
             document.flush();
             document.close();
+            new BillSavingHeler().saveCustemerInformation(type,""+System.currentTimeMillis(),user.getCustemerName(),
+                    user.getCustemerAddress(), user.getCustemerPhone(),user.getCustemerGstNo(), user.getCustemerEmail(),
+                    productsList,""+totalPriceWithoutGst,
+                    (totalPriceWithGst-totalPriceWithoutGst)+"",""+totalPriceWithGst);
             Toast.makeText(context, "Bill Generated!", Toast.LENGTH_SHORT).show();
         }
         catch (FileNotFoundException e)

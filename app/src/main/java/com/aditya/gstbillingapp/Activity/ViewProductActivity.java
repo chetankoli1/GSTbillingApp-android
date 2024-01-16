@@ -56,8 +56,6 @@ public class ViewProductActivity extends AppCompatActivity {
             return insets;
         });
 
-        loadAndDisplayProducts();
-
         binding.fabAddProduct.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -65,6 +63,10 @@ public class ViewProductActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        loadAndDisplayProducts();
+
+
     }
 
     private JSONArray loadExistingProducts() {
