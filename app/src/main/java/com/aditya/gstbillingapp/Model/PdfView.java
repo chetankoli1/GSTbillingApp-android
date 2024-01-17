@@ -241,8 +241,8 @@ public class PdfView {
                 product = new Cell(1, 1).add(new Paragraph(products.getProductName()));
                 quat = new Cell(1, 1).add(new Paragraph(products.getProductQuantity()));
                 hsasan = new Cell(1, 1).add(new Paragraph(""+products.getProductSANno()));
-                totalwithgst = new Cell(1, 1).add(new Paragraph("Rs. "+priceWithQunt+" /-"));
-                totalwithoutgst = new Cell(1, 1).add(new Paragraph("Rs. "+priceWithQuntWithGst+" /-"));
+                totalwithgst = new Cell(1, 1).add(new Paragraph("Rs. "+priceWithQunt+"/-"));
+                totalwithoutgst = new Cell(1, 1).add(new Paragraph("Rs. "+priceWithQuntWithGst+"/-"));
 
                 productTable.addCell(srno);
                 productTable.addCell(product);
@@ -264,14 +264,14 @@ public class PdfView {
             Cell totalPrice = new Cell(1, 1).add(
                     new Paragraph("Non Taxable Amount: ").setBold());
             Cell totalPriceValue = new Cell(1, 1).add(
-                    new Paragraph("Rs. "+totalPriceWithoutGst+" /-"));
+                    new Paragraph("Rs. "+totalPriceWithoutGst+"/-"));
 
             Cell p5 = new Cell(1, 1).add(new Paragraph("IFSC: ").setBold());
             Cell p6 = new Cell(1, 1).add(new Paragraph(AppConfig.account_ifsc));
             Cell totalPriceWithGstCell = new Cell(1, 1).add(
                     new Paragraph("Taxable Amount: ").setBold());
             Cell totalPriceWithGstCellValue = new Cell(1, 1).add(
-                    new Paragraph("Rs. "+totalPriceWithGst+" /-"));
+                    new Paragraph("Rs. "+totalPriceWithGst+"/-"));
 
             Cell p9 = new Cell(1, 1).add(new Paragraph("Branch:- ").setBold());
             Cell p10 = new Cell(1, 1).add(new Paragraph(AppConfig.account_branch));
@@ -279,13 +279,13 @@ public class PdfView {
             Cell totalGst = new Cell(1, 1).add(
                     new Paragraph("Total Tax: ").setBold());
             Cell totalGstValue = new Cell(1, 1).add(
-                    new Paragraph("Rs. "+(totalPriceWithGst-totalPriceWithoutGst)+" /-"));
+                    new Paragraph("Rs. "+(totalPriceWithGst-totalPriceWithoutGst)+"/-"));
 
 
             Cell totalAmount = new Cell(1, 1).add(
                     new Paragraph("Total Payble Amount: ").setBold());
             Cell totalAmountValue = new Cell(1, 1).add(
-                    new Paragraph("Rs. "+totalPriceWithGst+" /-"));
+                    new Paragraph("Rs. "+totalPriceWithGst+"/-"));
 
             NumberToWorld converter = new NumberToWorld();
             String numberInWords = converter.asWords(totalPriceWithGst);
