@@ -6,7 +6,7 @@
 
     <!--    <style name="Theme.GSTBillingApp" parent="Base.Theme.GSTBillingApp" />-->
 
-    <style name="Theme.GSTBillingApp" parent="Theme.AppCompat.Light.NoActionBar">
+    <style name="Theme.GSTBillingApp" parent="Theme.MaterialComponents.Light.NoActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/purple_500</item>
         <item name="colorSecondary">@color/purple_700</item>
