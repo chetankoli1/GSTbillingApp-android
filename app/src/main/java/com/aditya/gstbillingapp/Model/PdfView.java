@@ -335,8 +335,8 @@ public class PdfView {
             authorizedSignature.setWidth(UnitValue.createPercentValue(100));
 
             Paragraph declaration = new Paragraph("Declearation:-\n" +
-                    "1. We hereby declare that the goods and services mentioned in this invoice/bill have" +
-                    "been supplied as per our customer's requirements, and all applicable taxes including" +
+                    "1. We hereby declare that the goods and services mentioned in this invoice/bill have " +
+                    "been supplied as per our customer's requirements, and all applicable taxes including " +
                     "GST have been charged as per the GST Law in India\n"+
                     "2. We declare that this invoice shows the actual price of the " +
                     "goods described and that all particulars are true and " +
