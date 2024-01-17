@@ -15,6 +15,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.CompoundButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
@@ -96,6 +97,18 @@ public class CreateNewBillActivity extends AppCompatActivity {
 
     private void initHooksForClick() {
         Activity activity = CreateNewBillActivity.this;
+
+        binding.autoGenerateSwitch.setChecked(true);
+        binding.autoGenerateSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    binding.manualInvoiceEditText.setVisibility(View.GONE);
+                } else {
+                    binding.manualInvoiceEditText.setVisibility(View.VISIBLE);
+                }
+            }
+        });
         binding.productSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -181,25 +194,22 @@ public class CreateNewBillActivity extends AppCompatActivity {
                 if(userList.size() != 0 && addedProductList.size() != 0)
                 {
                     showProgressDialog();
-                    ArrayList<File> pdfFiles = new ArrayList<>();
-                    new BillAdapter(pdfFiles, CreateNewBillActivity.this);
-                    File filed = new File(Environment.getExternalStorageDirectory(), AppConfig.folderName);
-                    File branch = new File(filed, AppConfig.Bills);
 
-                    if (branch.exists() && branch.isDirectory()) {
-                        File[] files = branch.listFiles();
+                    InvoiceGenerator generator = new InvoiceGenerator();
+                    String invoiceNumber = generator.generateInvoiceNumber();
 
-                        if (files != null) {
-                            for (File file1 : files) {
-                                if (file1.isFile() && file1.getName().toLowerCase().endsWith(".pdf")) {
-                                    pdfFiles.add(file1);
-                                }
-                            }
+                    if(!binding.autoGenerateSwitch.isChecked())
+                    {
+
+                        if(binding.manualInvoiceEditText.getText().toString().isEmpty()){
+                            dismissProgressDialog();
+                            Toast.makeText(CreateNewBillActivity.this, "Please enter invoice number", Toast.LENGTH_SHORT).show();
+                            return;
+                        }else{
+                            invoiceNumber = binding.manualInvoiceEditText.getText().toString().trim();
                         }
                     }
 
-                    InvoiceGenerator generator = new InvoiceGenerator(pdfFiles.size()+1);
-                    String invoiceNumber = generator.generateInvoiceNumber();
                     String pdf = new PdfView().generatePdf(CreateNewBillActivity.this,
                             user.getCustemerName() + "_" + invoiceNumber + ".pdf",
                             addedProductList, user, billType,invoiceNumber);

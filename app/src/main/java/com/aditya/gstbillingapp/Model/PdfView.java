@@ -241,8 +241,8 @@ public class PdfView {
                 product = new Cell(1, 1).add(new Paragraph(products.getProductName()));
                 quat = new Cell(1, 1).add(new Paragraph(products.getProductQuantity()));
                 hsasan = new Cell(1, 1).add(new Paragraph(""+products.getProductSANno()));
-                totalwithgst = new Cell(1, 1).add(new Paragraph(priceWithQunt+" Rs"));
-                totalwithoutgst = new Cell(1, 1).add(new Paragraph(priceWithQuntWithGst+" Rs"));
+                totalwithgst = new Cell(1, 1).add(new Paragraph("Rs. "+priceWithQunt+" /-"));
+                totalwithoutgst = new Cell(1, 1).add(new Paragraph("Rs. "+priceWithQuntWithGst+" /-"));
 
                 productTable.addCell(srno);
                 productTable.addCell(product);
@@ -264,14 +264,14 @@ public class PdfView {
             Cell totalPrice = new Cell(1, 1).add(
                     new Paragraph("Non Taxable Amount: ").setBold());
             Cell totalPriceValue = new Cell(1, 1).add(
-                    new Paragraph("\u20B9 "+totalPriceWithoutGst+" Rs /-"));
+                    new Paragraph("Rs. "+totalPriceWithoutGst+" /-"));
 
             Cell p5 = new Cell(1, 1).add(new Paragraph("IFSC: ").setBold());
             Cell p6 = new Cell(1, 1).add(new Paragraph(AppConfig.account_ifsc));
             Cell totalPriceWithGstCell = new Cell(1, 1).add(
                     new Paragraph("Taxable Amount: ").setBold());
             Cell totalPriceWithGstCellValue = new Cell(1, 1).add(
-                    new Paragraph("\u20B9 "+totalPriceWithGst+" Rs /-"));
+                    new Paragraph("Rs. "+totalPriceWithGst+" /-"));
 
             Cell p9 = new Cell(1, 1).add(new Paragraph("Branch:- ").setBold());
             Cell p10 = new Cell(1, 1).add(new Paragraph(AppConfig.account_branch));
@@ -279,18 +279,26 @@ public class PdfView {
             Cell totalGst = new Cell(1, 1).add(
                     new Paragraph("Total Tax: ").setBold());
             Cell totalGstValue = new Cell(1, 1).add(
-                    new Paragraph((totalPriceWithGst-totalPriceWithoutGst)+" Rs /-"));
+                    new Paragraph("Rs. "+(totalPriceWithGst-totalPriceWithoutGst)+" /-"));
 
 
             Cell totalAmount = new Cell(1, 1).add(
                     new Paragraph("Total Payble Amount: ").setBold());
             Cell totalAmountValue = new Cell(1, 1).add(
-                    new Paragraph(+totalPriceWithGst+" Rs /-"));
+                    new Paragraph("Rs. "+totalPriceWithGst+" /-"));
 
             NumberToWorld converter = new NumberToWorld();
             String numberInWords = converter.asWords(totalPriceWithGst);
+
+            String[] words = numberInWords.split(" ");
+            StringBuilder result = new StringBuilder();
+
+            for (String word : words) {
+                result.append(Character.toUpperCase(word.charAt(0))).append(word.substring(1)).append(" ");
+            }
+
             Cell date = new Cell(1, 1).add(new Paragraph("Payble Amount\nin Words:").setBold());
-            Cell dateValue = new Cell(1, 1).add(new Paragraph(numberInWords+" Rupees Only"));
+            Cell dateValue = new Cell(1, 1).add(new Paragraph(result.toString()+"Rupees Only"));
 
             totalTable.addCell(p1);
             totalTable.addCell(p2);
@@ -333,7 +341,7 @@ public class PdfView {
                     "2. We declare that this invoice shows the actual price of the " +
                     "goods described and that all particulars are true and " +
                     "correct.\n" +
-                    "3.In this bill cgst 9% and sgst 9% total gst are 18% added"
+                    "3.In this bill, both CGST and SGST are levied at a rate of 9%, resulting in a total GST of 18%"
             )
                     .setTextAlignment(TextAlignment.LEFT)
                     .setMarginLeft(10f)
