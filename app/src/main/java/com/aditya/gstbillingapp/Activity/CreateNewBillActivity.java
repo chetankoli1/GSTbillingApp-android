@@ -27,7 +27,9 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import com.aditya.gstbillingapp.Adapters.AddedProductsAdpater;
+import com.aditya.gstbillingapp.Adapters.BillAdapter;
 import com.aditya.gstbillingapp.Config.AppConfig;
+import com.aditya.gstbillingapp.Helper.InvoiceGenerator;
 import com.aditya.gstbillingapp.Helper.PermissionHelper;
 import com.aditya.gstbillingapp.Model.MyProducts;
 import com.aditya.gstbillingapp.Model.PdfView;
@@ -179,14 +181,31 @@ public class CreateNewBillActivity extends AppCompatActivity {
                 if(userList.size() != 0 && addedProductList.size() != 0)
                 {
                     showProgressDialog();
+                    ArrayList<File> pdfFiles = new ArrayList<>();
+                    new BillAdapter(pdfFiles, CreateNewBillActivity.this);
+                    File filed = new File(Environment.getExternalStorageDirectory(), AppConfig.folderName);
+                    File branch = new File(filed, AppConfig.Bills);
+
+                    if (branch.exists() && branch.isDirectory()) {
+                        File[] files = branch.listFiles();
+
+                        if (files != null) {
+                            for (File file1 : files) {
+                                if (file1.isFile() && file1.getName().toLowerCase().endsWith(".pdf")) {
+                                    pdfFiles.add(file1);
+                                }
+                            }
+                        }
+                    }
+
+                    InvoiceGenerator generator = new InvoiceGenerator(pdfFiles.size()+1);
+                    String invoiceNumber = generator.generateInvoiceNumber();
                     String pdf = new PdfView().generatePdf(CreateNewBillActivity.this,
-                            user.getCustemerName() + "_" + System.currentTimeMillis() + ".pdf",
-                            addedProductList, user, billType);
+                            user.getCustemerName() + "_" + invoiceNumber + ".pdf",
+                            addedProductList, user, billType,invoiceNumber);
                     File file = new File(pdf);
                     if (file.exists()) {
                         dismissProgressDialog(); // Dismiss the progress dialog
-                        userList.clear();
-                        addedProductList.clear();
                         Uri uri = FileProvider.getUriForFile(CreateNewBillActivity.this, getApplicationContext().getPackageName() + ".provider", file.getAbsoluteFile());
 
                         Intent intent = new Intent(Intent.ACTION_VIEW);

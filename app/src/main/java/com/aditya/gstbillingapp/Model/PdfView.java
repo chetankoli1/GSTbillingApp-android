@@ -51,7 +51,7 @@ import java.util.Locale;
 
 public class PdfView {
     public String generatePdf(Context context, String path, List<MyProducts> productsList,
-                            User user,String type)
+                            User user,String type, String inviceNo)
     {
         File file = new File(Environment.getExternalStorageDirectory(), AppConfig.folderName);
         File newFile = new File(file,AppConfig.Bills);
@@ -156,7 +156,7 @@ public class PdfView {
             Cell cvalueAddress = new Cell(1, 3).add(new Paragraph(""+user.getCustemerAddress()));
 
             p13 = new Cell(1, 1).add(new Paragraph("Invoice No.:").setBold());
-            p14 = new Cell(1, 1).add(new Paragraph(""+System.currentTimeMillis()));
+            p14 = new Cell(1, 1).add(new Paragraph(inviceNo));
             p15 = new Cell(1, 1).add(
                     new Paragraph("Date: ").setBold());
             p16 = new Cell(1, 1).add(
@@ -264,14 +264,14 @@ public class PdfView {
             Cell totalPrice = new Cell(1, 1).add(
                     new Paragraph("Non Taxable Amount: ").setBold());
             Cell totalPriceValue = new Cell(1, 1).add(
-                    new Paragraph("\u20B9 "+totalPriceWithoutGst+" Rs"));
+                    new Paragraph("\u20B9 "+totalPriceWithoutGst+" Rs /-"));
 
             Cell p5 = new Cell(1, 1).add(new Paragraph("IFSC: ").setBold());
             Cell p6 = new Cell(1, 1).add(new Paragraph(AppConfig.account_ifsc));
             Cell totalPriceWithGstCell = new Cell(1, 1).add(
                     new Paragraph("Taxable Amount: ").setBold());
             Cell totalPriceWithGstCellValue = new Cell(1, 1).add(
-                    new Paragraph("\u20B9 "+totalPriceWithGst+" Rs"));
+                    new Paragraph("\u20B9 "+totalPriceWithGst+" Rs /-"));
 
             Cell p9 = new Cell(1, 1).add(new Paragraph("Branch:- ").setBold());
             Cell p10 = new Cell(1, 1).add(new Paragraph(AppConfig.account_branch));
@@ -279,13 +279,13 @@ public class PdfView {
             Cell totalGst = new Cell(1, 1).add(
                     new Paragraph("Total Tax: ").setBold());
             Cell totalGstValue = new Cell(1, 1).add(
-                    new Paragraph((totalPriceWithGst-totalPriceWithoutGst)+" Rs"));
+                    new Paragraph((totalPriceWithGst-totalPriceWithoutGst)+" Rs /-"));
 
 
             Cell totalAmount = new Cell(1, 1).add(
                     new Paragraph("Total Payble Amount: ").setBold());
             Cell totalAmountValue = new Cell(1, 1).add(
-                    new Paragraph(+totalPriceWithGst+" Rs Only /-"));
+                    new Paragraph(+totalPriceWithGst+" Rs /-"));
 
             NumberToWorld converter = new NumberToWorld();
             String numberInWords = converter.asWords(totalPriceWithGst);

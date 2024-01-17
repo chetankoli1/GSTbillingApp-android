@@ -35,10 +35,10 @@ public class AddedProductsAdpater extends RecyclerView.Adapter<AddedProductsView
     @Override
     public void onBindViewHolder(@NonNull AddedProductsViewHolder holder, int position) {
         MyProducts products = productsList.get(position);
-        holder.binding.miProductName.setText(products.getProductName());
-        holder.binding.miProductPrice.setText("\u20B9 "+products.getProductPrice());
-        holder.binding.miProductSanNo.setText(products.getProductSANno());
-        holder.binding.miProductQuantity.setText(products.getProductQuantity());
+        holder.binding.miProductName.setText("Product Name: "+products.getProductName());
+        holder.binding.miProductPrice.setText("Product Price "+"\u20B9 "+products.getProductPrice());
+        holder.binding.miProductSanNo.setText("HSN/SAC: "+products.getProductSANno());
+        holder.binding.miProductQuantity.setText("Quantity: "+products.getProductQuantity());
 
         holder.binding.miDelete.setOnClickListener(new View.OnClickListener() {
             @Override
